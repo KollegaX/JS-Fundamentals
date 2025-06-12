@@ -36,3 +36,45 @@ function repeat(value, count){
 }
 let result = repeat('abc', 3);
 console.log(result);
+
+
+
+//// Nested Functions
+function printCertificate(grade, names){
+    if (grade < 3.00) {
+        console.log('Student does not qualify');
+        return;
+    }
+
+    printHeader();
+    printNames(names);
+    printGrade(grade);
+
+    function printHeader(){
+        console.log('----= ${@} =-----');
+        console.log('-= Certificate =-');
+        console.log('-----= --- =-----');   
+    }
+
+    function printNames(){
+        console.log(`   ${names[0]} ${names[1]}`);
+        
+    }
+function printGrade(grade) {
+    if (grade < 3.00) {
+        console.log('Fail (2)');
+    } else if (grade < 3.50) {
+        console.log(`Poor (${grade.toFixed(2)})`);
+    } else if (grade < 4.50) {
+        console.log(`Good (${grade.toFixed(2)})`);
+    } else if (grade < 5.50) {
+        console.log(` Very good (${grade.toFixed(2)})`);
+    } else {
+        console.log(`Excellent (${grade.toFixed(2)})`);
+    }
+}
+
+
+}
+
+printCertificate(5.25, ['Peter', 'Carter'])
