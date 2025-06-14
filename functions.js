@@ -131,3 +131,22 @@ function checkSignOfMultiplication(firstNum, secondNum, thirdNum){
 
 let result = checkSignOfMultiplication(5, 12, -15)
 console.log(result);
+
+
+/////
+
+function solve(a,b,c){
+    function findSmallestNumber (x,y){
+        if(x <= y){
+            return x;
+        } else {
+            return y;
+        }
+    }
+    let temp_result = findSmallestNumber(a,b);
+    let result = findSmallestNumber(temp_result, c);
+    console.log(result);
+    
+}
+solve(1,2,3)
+
