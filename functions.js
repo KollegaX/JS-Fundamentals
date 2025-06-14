@@ -78,3 +78,27 @@ function printGrade(grade) {
 }
 
 printCertificate(5.25, ['Peter', 'Carter'])
+
+
+
+////....
+let solve = (product,quantity) => {
+    let price = 0;
+
+    for (let i = 1; i <= quantity; i++){
+        switch (product){
+            case 'coffee': price = 1.50 * i; break;
+            case 'water' : price = 1.00 * i; break;
+            case 'coke'  : price = 1.40 * i; break;
+            case 'snacks': price = 2.00 * i; break;
+            
+        }
+        
+    }
+
+    let result = price;
+
+    console.log(result.toFixed(2));
+    
+}
+solve('water',5)
