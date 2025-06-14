@@ -150,3 +150,26 @@ function solve(a,b,c){
 }
 solve(1,2,3)
 
+
+/////
+
+
+function solve(a,b,c){
+
+    function sum(x,y){
+        return x + y;
+    }
+
+    function substract(x,y){
+        return x - y;
+    }
+
+    let result = substract(sum(a,b), c);
+    // let sumResult = sum(a,b);
+    // let finalResult = substract(sumResult, c);
+    console.log(result);
+    
+
+}
+solve(23,6,10)
+
