@@ -102,3 +102,32 @@ let solve = (product,quantity) => {
     
 }
 solve('water',5)
+
+
+
+//// SIGN CHECK
+function checkSignOfMultiplication(firstNum, secondNum, thirdNum){
+    let totalNegativeNumbers = 0;
+
+    if (firstNum < 0){
+        totalNegativeNumbers++;
+    }
+
+    if (secondNum < 0 ){
+        totalNegativeNumbers++;
+    }
+
+    if (thirdNum < 0){
+        totalNegativeNumbers++;
+    }
+
+    if(totalNegativeNumbers === 1 || totalNegativeNumbers === 3){
+        return 'Negative';
+    } else {
+        return 'Positive';
+    }
+
+}
+
+let result = checkSignOfMultiplication(5, 12, -15)
+console.log(result);
