@@ -347,3 +347,89 @@ function matrix(num){
     }
 }
 matrix(7)
+
+
+
+///// Perfect Number
+
+function solve(n){
+    function findPositiveDivisors(num){
+        result = [];
+
+        for (let i = 1; i < num; i++){
+            if (num % i === 0){
+                result.push(i)
+            }
+        }
+
+        return result;
+    }
+
+    function sumArray(arr){
+        let result = 0;
+        for (let i = 0; i < arr.length; i++){
+            result += arr[i];
+        }
+        return result;
+    }
+
+    let resultArray = findPositiveDivisors(n);
+    let sumResult = sumArray(resultArray);
+    if (sumResult === n){
+        console.log('We have a perfect number!');
+        
+    } else {
+        console.log("It's not so perfect");
+        
+    }
+
+}
+solve(1234) 
+
+
+
+///// Loading Bar
+function solve(n){
+
+    function showLoading(num){
+        let loaded = parseInt(num / 10);
+        let remain = parseInt((100 - num) / 10);
+        let result = `${num}% [` + '%'.repeat(loaded) + '.'.repeat(remain) + ']';
+        return result;
+    }
+
+    if (n < 100){
+        console.log(showLoading(n));
+        console.log('Still loading...');
+    }     else {
+        console.log('100% Complete!');
+        console.log('[%%%%%%%%%%]');
+        
+    }
+    
+}
+solve(100)
+
+
+///// Factorial Division
+
+function factorialDivision(n1,n2){
+    
+    function factorial(n){
+        if (n < 0) {
+            return undefined;
+        }
+
+        let result = 1;
+        for (let i = 2; i <= n; i++){
+            result *= i;
+        }
+        return result;
+    }
+    let num1 = factorial(n1);
+    let num2 = factorial(n2);
+    let result = num1 / num2;
+    console.log(result.toFixed(2));
+    
+}
+factorialDivision(5,2)
