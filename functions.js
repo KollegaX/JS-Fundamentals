@@ -261,3 +261,22 @@ function solve(n){
 }
 
 solve(123456789)
+
+
+
+//// Palindrome 
+
+function solve(arr){
+    function checkPalindrome(num){
+        let str = num.toString();
+        let reversed = str.split('').reverse().join('');
+        return str === reversed ? true : false;
+    }
+
+
+    for (let el of arr){
+        console.log(checkPalindrome(el));
+    }
+
+}
+solve([123,323,421,121])
