@@ -280,3 +280,60 @@ function solve(arr){
 
 }
 solve([123,323,421,121])
+
+
+//// Password Validator
+function solve(pwd){
+    function checkLength(str, min, max){
+        return str.length >= min && str.length <= max;
+    }
+
+    function inRange(num, min, max){
+        return num >= min && num <= max;
+    }
+
+    function checkLettersDigitsOnly(str){
+        for (let i = 0; i < str.length; i++){
+            let asciiCode = str[i].charCodeAt(0);
+            if (!inRange(asciiCode, 48, 57)// not a digit
+            && !inRange(asciiCode, 65, 90) // not a capital digit
+            && !inRange(asciiCode, 97, 122) // not a letter
+            ) {
+                return false;
+            } 
+        }
+        return true;
+    }
+
+
+    function countDigits(str){
+        let result = 0;
+        for (let i = 0; i < str.length; i++){
+            let asciiCode = str[i].charCodeAt(0);
+            if (inRange(asciiCode, 48, 57)){
+                result++;
+            }
+        }
+        return result;
+    }
+
+    let isValid = true;
+    if (!checkLength(pwd,6, 10)){
+        console.log('Password must be between 6 and 10 characters');
+        isValid = false;
+    }
+    if (!checkLettersDigitsOnly(pwd)){
+        console.log('Password must consist only of letters and digits');
+        isValid = false;
+    }
+
+    if (countDigits(pwd) < 2){
+        console.log('Password must have at least 2 digits');
+        isValid = false;
+    }
+
+    if (isValid){
+        console.log('Password is valid');
+        
+    }
+}
