@@ -101,8 +101,7 @@ function solve(input){
     //         grades.push(currentGrade);
     //     }
     // }
-
-    /// JUST FOR SPLITTING THE GRAD
+    /// JUST FOR SPLITTING THE GRADES
 
 
     //// OR
