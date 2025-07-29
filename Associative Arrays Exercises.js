@@ -206,7 +206,7 @@ function solve(input){
 
     for (let line of input){
         let [company, employeeID] = line.split(' -> ');
-        if (!companyMap.has(employeeID)){
+        if (!companyMap.has(company)){
             companyMap.set(company, new Set())
         }
 
