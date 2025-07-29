@@ -228,3 +228,26 @@ function solve(input){
 
 }
 solve(['SoftUni -> AA12345', 'SoftUni -> BB12345', 'Microsoft -> CC12345', 'HP -> BB12345' ])
+
+
+
+
+//// 7 [A Miner Task]
+function solve(input){
+    let resources1 = {};
+    for (let i = 0; i < input.length; i += 2){
+        let resource = input[i];
+        let quantity = Number(input[i + 1]);
+        resources1[resource] = resources1[resource] || 0;
+        resources1[resource] += quantity;
+    }
+
+    for (let res in resources1){
+        console.log(`${res} -> ${resources1[res]}`);
+        
+    }
+
+}
+solve(['Gold','155','Silver','10','Copper','17'])
+console.log(`------------`);
+solve([ 'gold', '155', 'silver', '10', 'copper', '17', 'gold', '15' ])
