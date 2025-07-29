@@ -195,3 +195,36 @@ solve([
 'Peter: JD, JD, JD, JD, JD, JD'
 
 ])
+
+
+
+
+//// 6 [Company User]
+function solve(input){
+    let companyMap = new Map();
+
+
+    for (let line of input){
+        let [company, employeeID] = line.split(' -> ');
+        if (!companyMap.has(employeeID)){
+            companyMap.set(company, new Set())
+        }
+
+        companyMap.get(company).add(employeeID);
+        
+    }
+
+        let sortedCompanies = [...companyMap.entries()].sort((a,b) => a[0].localeCompare(b[0]))
+
+        for (let [company, employees] of sortedCompanies){
+            console.log(company);
+            for (let id of employees){
+                console.log(`-- ${id}`);
+                
+            }
+            
+        }
+        
+
+}
+solve(['SoftUni -> AA12345', 'SoftUni -> BB12345', 'Microsoft -> CC12345', 'HP -> BB12345' ])
