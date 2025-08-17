@@ -75,3 +75,69 @@ let text123 = '1        2   3           4';
 let regexppp = /\s+/g;
 let result1 = text123.split(regexppp);
 console.log(result1);
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////// \b : should not have any symbol before this thing (before this letter, I don't want another letter)
+
+//// [1] Match Full Name
+function solve(input){
+    let pattern = /\b[A-Z][a-z]+ [A-Z][a-z]+\b/g
+
+    let result = input.matchAll(pattern);
+
+    let output = [];
+
+    for (let match of result){
+            output.push(match[0])
+        
+    }
+
+    console.log(output.join(''));
+    
+
+}
+solve('ivan ivanov, Ivan ivanov, ivan Ivanov, IVan Ivanov, Ivan IvAnov, Ivan Ivanov')
+
+
+//// [2] Match Phone Number
+function phoneN(input){
+    let pattern = /\+359([ -])2\1\d{3}\1\d{4}\b/g;
+
+    let matches = input[0].matchAll(pattern);
+    let output = [];
+
+    for (let match of matches){
+        output.push(match[0]);
+        
+    }
+
+    console.log(output.join(', '));
+    
+}
+phoneN(['+359 2 222 2222,359-2-222-2222, +359/2/222/2222, +359-2 222 2222 +359 2-222-2222,+359-2-222-222, +359-2-222-22222 +359-2-222-2222'])
+
+
+
+//// [3] Match Dates
+function datesMatch(input){
+    let text = input[0];
+
+    let pattern = /\b(?<day>\d{2})([-\.\/])(?<month>[A-Z][a-z]{2})\2(?<year>\d{4})\b/g;
+
+    let matches = text.matchAll(pattern);
+
+    for (let match of matches){
+        console.log(match[0]);
+
+        let day = match.groups['day'];
+        let month = match.groups['month'];
+        let year = match.groups['year'];
+
+        console.log(`Day: ${day}, Month: ${month}, Year: ${year}`);
+        
+        }
+    
+}
+datesMatch(['13/Jul/1928, 10-Nov-1934, , 01/Jan-1951,f 25.Dec.1937 23/09/1973,1/Feb/2016'])
+
